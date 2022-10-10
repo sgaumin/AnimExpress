@@ -1,0 +1,16 @@
+{
+    "name": "com.sgaumin.animexpress",
+    "version": "0.1.0",
+    "displayName": "Anim Express",
+    "unity": "2018.4",
+    "description": "Quickly setup 2D animations in Unity editor",
+    "keywords": ["animation", "2D","inspector", "editor"],
+    "category": "animation extension",
+    "dependencies": {},
+    "licensesUrl": "https://github.com/sgaumin/AnimExpress/blob/main/LICENSE.md",
+    "author": {
+        "name": "Sébastien Gaumin",
+        "email": "sgaumin@gmail.com",
+        "url": "https://github.com/sgaumin"
+    }
+}

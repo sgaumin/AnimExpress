@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf71752e22bd0a2478c8074f8452590b, type: 3}
+  m_Name: Player-DeathWater
+  m_EditorClassIdentifier: 
+  isLooping: 0
+  playDefaultOnCompletion: 0
+  speedFactor: 1
+  frames:
+  - sprite: {fileID: -1278877302, guid: 87b6622c8541568468da573a728a0518, type: 3}
+    duration: 0.1
+  - sprite: {fileID: -796159301, guid: 87b6622c8541568468da573a728a0518, type: 3}
+    duration: 0.1
+  - sprite: {fileID: 1460344754, guid: 87b6622c8541568468da573a728a0518, type: 3}
+    duration: 0.1
+  - sprite: {fileID: 1968147782, guid: 87b6622c8541568468da573a728a0518, type: 3}
+    duration: 0.1
+  events: []
