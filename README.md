@@ -8,7 +8,7 @@ Unity library to quickly setup 2D animations in editor
 Simply import this package with Unity Package Manager by using the url *https://github.com/sgaumin/AnimExpress.git*
 
 ## System Requirements
-Unity **2018.4** or later versions. Don't forget to include the AudioExpress namespace.
+Unity **2018.4** or later versions. Don't forget to include the AnimExpress namespace.
 
 ## Overview
 TODO
