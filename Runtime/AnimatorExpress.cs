@@ -144,7 +144,7 @@ namespace AnimExpress
 		{
 			int currentIndex = 0;
 			float currentDuration = 0f;
-			float currentStartTime = 0f;
+			float currentStartTime = Time.time;
 			List<Frame> frames = currentAnimation.Frames;
 			List<AnimationEventChecker> events = new List<AnimationEventChecker>();
 			foreach (var e in currentAnimation.Events)
