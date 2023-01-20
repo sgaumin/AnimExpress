@@ -125,11 +125,23 @@ namespace AnimExpress
 
 		private void PlayRoutine()
 		{
-			if (animationRoutine is not null)
+			StopRoutine();
+			animationRoutine = StartCoroutine(PlayCore());
+		}
+
+		private void StopRoutine()
+		{
+			if (animationRoutine != null)
 			{
 				StopCoroutine(animationRoutine);
 			}
-			animationRoutine = StartCoroutine(PlayCore());
+			animationRoutine = null;
+		}
+
+		public void Stop()
+		{
+			StopRoutine();
+			currentAnimation = null;
 		}
 
 		private void CheckInitialization()
