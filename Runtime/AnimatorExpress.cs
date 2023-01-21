@@ -95,12 +95,6 @@ namespace AnimExpress
 			DoPlay(animationKey);
 		}
 
-		public void Play(string animationKey = "")
-		{
-			if (animatorExpressTester.IsTakingControls) return;
-			DoPlay(animationKey);
-		}
-
 		private void DoPlay(string animationKey)
 		{
 			CheckInitialization();
@@ -123,6 +117,54 @@ namespace AnimExpress
 			PlayRoutine();
 		}
 
+		public void Play(string animationKey = "")
+		{
+			if (animatorExpressTester.IsTakingControls) return;
+			DoPlay(animationKey);
+		}
+
+		public void Stop()
+		{
+			CheckInitialization();
+
+			StopRoutine();
+			currentAnimation = null;
+		}
+
+		public void AddListener(string animationName, string eventName, Action action)
+		{
+			CheckInitialization();
+
+			if (declaredAnimationEvents.TryGetValue(animationName, out var events))
+			{
+				if (events.TryGetValue(eventName, out var e))
+				{
+					e.AddListener(action);
+				}
+				else
+				{
+					Debug.LogError($"Event {eventName} on animation {animationName} not found for {gameObject.name}");
+				}
+			}
+			else
+			{
+				Debug.LogError($"Animation {animationName} not found for {gameObject.name}");
+			}
+		}
+
+		public void RemoveListener(string animationName, string eventName, Action action)
+		{
+			CheckInitialization();
+
+			if (declaredAnimationEvents.TryGetValue(animationName, out var events))
+			{
+				if (events.TryGetValue(eventName, out var e))
+				{
+					e.RemoveListener(action);
+				}
+			}
+		}
+
 		private void PlayRoutine()
 		{
 			StopRoutine();
@@ -136,12 +178,6 @@ namespace AnimExpress
 				StopCoroutine(animationRoutine);
 			}
 			animationRoutine = null;
-		}
-
-		public void Stop()
-		{
-			StopRoutine();
-			currentAnimation = null;
 		}
 
 		private void CheckInitialization()
@@ -206,36 +242,6 @@ namespace AnimExpress
 			if (currentAnimation.PlayDefaultOnCompletion)
 			{
 				PlayDefault();
-			}
-		}
-
-		public void AddListener(string animationName, string eventName, Action action)
-		{
-			if (declaredAnimationEvents.TryGetValue(animationName, out var events))
-			{
-				if (events.TryGetValue(eventName, out var e))
-				{
-					e.AddListener(action);
-				}
-				else
-				{
-					Debug.LogError($"Event {eventName} on animation {animationName} not found for {gameObject.name}");
-				}
-			}
-			else
-			{
-				Debug.LogError($"Animation {animationName} not found for {gameObject.name}");
-			}
-		}
-
-		public void RemoveListener(string animationName, string eventName, Action action)
-		{
-			if (declaredAnimationEvents.TryGetValue(animationName, out var events))
-			{
-				if (events.TryGetValue(eventName, out var e))
-				{
-					e.RemoveListener(action);
-				}
 			}
 		}
 	}
