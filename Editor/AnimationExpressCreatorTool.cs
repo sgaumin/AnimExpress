@@ -59,7 +59,14 @@ namespace AnimExpress
 			SpriteMetaData[] spritesheet = textureImporter.spritesheet;
 			for (int i = 0; i < spritesheet.Length; i++)
 			{
-				spritesheet[i].name = $"{fileName}_{i}";
+				if (i < 10)
+				{
+					spritesheet[i].name = $"{fileName}_0{i}";
+				}
+				else
+				{
+					spritesheet[i].name = $"{fileName}_{i}";
+				}
 			}
 			textureImporter.spritesheet = spritesheet;
 
