@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player-DeathWater
   m_EditorClassIdentifier: 
   isLooping: 0
-  playDefaultOnCompletion: 0
+  onCompletionOption: 1
   speedFactor: 1
   frames:
   - sprite: {fileID: -1278877302, guid: 87b6622c8541568468da573a728a0518, type: 3}
