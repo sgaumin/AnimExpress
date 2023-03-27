@@ -61,6 +61,10 @@ namespace AnimExpress
 			{
 				if (i < 10)
 				{
+					spritesheet[i].name = $"{fileName}_00{i}";
+				}
+				else if (i < 100)
+				{
 					spritesheet[i].name = $"{fileName}_0{i}";
 				}
 				else
