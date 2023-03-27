@@ -1,4 +1,3 @@
-using System.Runtime.Remoting.Contexts;
 using UnityEditor;
 using UnityEngine;
 
@@ -24,6 +23,10 @@ namespace AnimExpress
 			{
 				EditorGUILayout.PropertyField(serializedObject.FindProperty("onCompletionOption"));
 			}
+
+			EditorGUILayout.Space(16f);
+
+			EditorGUILayout.LabelField($"Total Duration: {context.TotalDuration.ToString("0.00")}s", EditorStyles.boldLabel);
 			SerializedProperty speedFactor = serializedObject.FindProperty("speedFactor");
 			EditorGUILayout.PropertyField(speedFactor);
 			if (speedFactor.floatValue == 0f)
@@ -44,6 +47,7 @@ namespace AnimExpress
 			GUI.skin.box = GuistyleBoxDND;
 
 			EditorGUILayout.Space(32f);
+
 			Rect myRect = GUILayoutUtility.GetRect(0, 140, GUILayout.ExpandWidth(true));
 			GUI.Box(myRect, "Drag and Drop Sprites to this Box!", GuistyleBoxDND);
 			if (myRect.Contains(Event.current.mousePosition))
