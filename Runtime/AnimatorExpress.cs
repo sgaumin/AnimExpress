@@ -239,9 +239,16 @@ namespace AnimExpress
 				yield return null;
 			}
 
-			if (currentAnimation.PlayDefaultOnCompletion)
+			switch (currentAnimation.OnCompletionOption)
 			{
-				PlayDefault();
+				case AnimationExpressCompletionOptions.PlayDefaultAnimation:
+					PlayDefault();
+					break;
+				case AnimationExpressCompletionOptions.DestroyGameObject:
+					Destroy(gameObject);
+					break;
+				default:
+					break;
 			}
 		}
 	}

@@ -22,7 +22,7 @@ namespace AnimExpress
 			EditorGUILayout.PropertyField(isLooping);
 			if (!isLooping.boolValue)
 			{
-				EditorGUILayout.PropertyField(serializedObject.FindProperty("playDefaultOnCompletion"));
+				EditorGUILayout.PropertyField(serializedObject.FindProperty("onCompletionOption"));
 			}
 			SerializedProperty speedFactor = serializedObject.FindProperty("speedFactor");
 			EditorGUILayout.PropertyField(speedFactor);

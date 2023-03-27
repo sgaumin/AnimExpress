@@ -8,13 +8,13 @@ namespace AnimExpress
 	public class AnimationExpress : ScriptableObject
 	{
 		[SerializeField] private bool isLooping = true;
-		[SerializeField] private bool playDefaultOnCompletion = true;
+		[SerializeField] private AnimationExpressCompletionOptions onCompletionOption = AnimationExpressCompletionOptions.PlayDefaultAnimation;
 		[SerializeField] private float speedFactor = 1f;
 		[SerializeField] private List<Frame> frames;
 		[SerializeField] private List<AnimationExpressEvent> events;
 
 		public bool IsLooping => isLooping;
-		public bool PlayDefaultOnCompletion => playDefaultOnCompletion;
+		internal AnimationExpressCompletionOptions OnCompletionOption => onCompletionOption;
 		public float SpeedFactor => speedFactor;
 		public List<Frame> Frames => frames;
 		public List<AnimationExpressEvent> Events => events;
