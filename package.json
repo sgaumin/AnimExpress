@@ -1,26 +1,24 @@
 {
-  "name": "com.sgaumin.animexpress",
-  "version": "0.1.2",
-  "displayName": "Anim Express",
-  "description": "Quickly setup 2D animations in Unity",
-  "unity": "2018.4",
-  "unityRelease": "0b5",
-  "documentationUrl": "https://example.com/",
-  "changelogUrl": "https://example.com/changelog.html",
-  "licensesUrl": "https://example.com/licensing.html", 
-  "samples": [
-    {
-      "displayName": "Character AnimExpress",
-      "description": "Contains samples for Character Animations using AnimExpress.",
-      "path": "Samples~/SampleCharacterAnimExpress"
-    },
-  ]
-  "keywords": ["animation", "2D", "inspector", "editor"],
-  "type": "tool",
-  "hideInEditor": true,
-  "author": {
-    "name": "Sébastien Gaumin",
-    "email": "sgaumin@gmail.com",
-    "url": "https://github.com/sgaumin"
-  }
+	"name": "com.sgaumin.animexpress",
+	"version": "0.1.2",
+	"displayName": "Anim Express",
+	"description": "Quickly setup 2D animations in Unity",
+	"unity": "2018.4",
+	"unityRelease": "0b5",
+	"documentationUrl": "https://example.com/",
+	"changelogUrl": "https://example.com/changelog.html",
+	"licensesUrl": "https://example.com/licensing.html",
+	"samples": [{
+		"displayName": "Character AnimExpress",
+		"description": "Contains samples for Character Animations using AnimExpress.",
+		"path": "Samples~/SampleCharacterAnimExpress"
+	}],
+	"keywords": ["animation", "2D", "inspector", "editor"],
+	"type": "tool",
+	"hideInEditor": true,
+	"author": {
+		"name": "Sébastien Gaumin",
+		"email": "sgaumin@gmail.com",
+		"url": "https://github.com/sgaumin"
+	}
 }
