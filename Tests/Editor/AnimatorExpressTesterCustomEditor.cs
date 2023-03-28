@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using AnimExpress.RuntimeTests;
+using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace AnimExpress
+namespace AnimExpress.EditorTests
 {
 	[CustomEditor(typeof(AnimatorExpressTester))]
 	public class AnimatorExpressTesterCustomEditor : Editor
@@ -30,7 +30,6 @@ namespace AnimExpress
 
 						if (GUILayout.Button(item.name))
 						{
-							context.IsTakingControls = true;
 							context.Animator.PlayTesting(item.name);
 						}
 					}
@@ -42,10 +41,10 @@ namespace AnimExpress
 				if (context.Animator.Animations.Count > 0)
 				{
 					GUILayout.Space(16f);
-					EditorGUI.BeginDisabledGroup(!context.IsTakingControls);
+					EditorGUI.BeginDisabledGroup(!context.Animator.IsBeingTested);
 					if (GUILayout.Button("Release Control"))
 					{
-						context.IsTakingControls = false;
+						context.Animator.IsBeingTested = false;
 					}
 					EditorGUI.EndDisabledGroup();
 				}

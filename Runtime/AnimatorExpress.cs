@@ -5,14 +5,13 @@ using System;
 
 namespace AnimExpress
 {
-	[RequireComponent(typeof(SpriteRenderer), typeof(AnimatorExpressTester))]
+	[RequireComponent(typeof(SpriteRenderer))]
 	public class AnimatorExpress : MonoBehaviour
 	{
 		[SerializeField] private List<AnimationExpress> animations = new List<AnimationExpress>();
 
 		[Header("References")]
 		[SerializeField] protected SpriteRenderer spriteRenderer;
-		[SerializeField] protected AnimatorExpressTester animatorExpressTester;
 
 		private bool hasBeenInitialized;
 		private Coroutine animationRoutine;
@@ -21,8 +20,9 @@ namespace AnimExpress
 		private Dictionary<string, Dictionary<string, AnimationExpressEvent>> declaredAnimationEvents;
 
 		public List<AnimationExpress> Animations => animations;
+		public bool IsBeingTested { get; set; }
 
-		private void OnValidate()
+		private void Reset()
 		{
 			try
 			{
@@ -31,10 +31,6 @@ namespace AnimExpress
 					if (spriteRenderer is null)
 					{
 						spriteRenderer = GetComponent<SpriteRenderer>();
-					}
-					if (animatorExpressTester is null)
-					{
-						animatorExpressTester = GetComponent<AnimatorExpressTester>();
 					}
 					spriteRenderer.sprite = animations[0].Frames[0].Sprite;
 				}
@@ -92,6 +88,7 @@ namespace AnimExpress
 
 		public void PlayTesting(string animationKey = "")
 		{
+			IsBeingTested = true;
 			DoPlay(animationKey);
 		}
 
@@ -119,7 +116,7 @@ namespace AnimExpress
 
 		public void Play(string animationKey = "")
 		{
-			if (animatorExpressTester.IsTakingControls) return;
+			if (IsBeingTested) return;
 			DoPlay(animationKey);
 		}
 

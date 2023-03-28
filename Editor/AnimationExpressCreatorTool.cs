@@ -1,13 +1,11 @@
-﻿using System;
+﻿using AnimExpress;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR
-
-namespace AnimExpress
+namespace AnimExpressEditor
 {
 	public static class AnimationExpressCreatorTool
 	{
@@ -81,5 +79,3 @@ namespace AnimExpress
 		}
 	}
 }
-
-#endif

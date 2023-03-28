@@ -1,5 +1,5 @@
 {
-    "name": "AnimExpress",
+    "name": "AnimExpress.Runtime",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [],

@@ -1,0 +1,16 @@
+{
+    "name": "AnimExpress.RuntimeTests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a1928c647970bdc40a5b951ad60a7fc9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

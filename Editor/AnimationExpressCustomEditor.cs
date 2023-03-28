@@ -1,7 +1,8 @@
+using AnimExpress;
 using UnityEditor;
 using UnityEngine;
 
-namespace AnimExpress
+namespace AnimExpressEditor
 {
 	[CustomEditor(typeof(AnimationExpress))]
 	public class AnimationExpressCustomEditor : Editor

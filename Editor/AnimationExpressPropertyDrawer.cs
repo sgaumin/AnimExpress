@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AnimExpress;
 using UnityEditor;
 using UnityEngine;
 
-namespace AnimExpress
+namespace AnimExpressEditor
 {
 	[CustomPropertyDrawer(typeof(AnimationExpress))]
 	public class AnimationExpressPropertyDrawer : PropertyDrawer

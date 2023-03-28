@@ -1,8 +1,9 @@
 {
-    "name": "AnimExpress.Tests.Editor",
+    "name": "AnimExpress.EditorTests",
     "rootNamespace": "",
     "references": [
-        "GUID:a1928c647970bdc40a5b951ad60a7fc9"
+        "GUID:a1928c647970bdc40a5b951ad60a7fc9",
+        "GUID:2223c88a0b2decf43b1b91ef260a6b7e"
     ],
     "includePlatforms": [
         "Editor"

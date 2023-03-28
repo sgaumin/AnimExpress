@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 
-namespace AnimExpress
+namespace AnimExpress.RuntimeTests
 {
 	public class AnimatorExpressTester : MonoBehaviour
 	{
 		public AnimatorExpress Animator => GetComponent<AnimatorExpress>();
-		public bool IsTakingControls { get; set; }
 	}
 }

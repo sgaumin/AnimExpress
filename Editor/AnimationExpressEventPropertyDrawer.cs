@@ -1,7 +1,8 @@
-﻿using UnityEditor;
+﻿using AnimExpress;
+using UnityEditor;
 using UnityEngine;
 
-namespace AnimExpress
+namespace AnimExpressEditor
 {
 	[CustomPropertyDrawer(typeof(AnimationExpressEvent))]
 	public class AnimationExpressEventPropertyDrawer : PropertyDrawer
