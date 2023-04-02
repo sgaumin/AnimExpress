@@ -24,4 +24,10 @@ MonoBehaviour:
     duration: 0.1
   - sprite: {fileID: 1968147782, guid: 87b6622c8541568468da573a728a0518, type: 3}
     duration: 0.1
-  events: []
+  events:
+  - eventName: 
+    triggerTime: 0
+  - eventName: 
+    triggerTime: 0
+  - eventName: 
+    triggerTime: 0

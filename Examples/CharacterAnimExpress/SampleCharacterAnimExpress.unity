@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 587929428}
   - component: {fileID: 587929431}
-  - component: {fileID: 587929430}
   - component: {fileID: 587929429}
   m_Layer: 0
   m_Name: Animation
@@ -176,19 +175,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6de30be3fa6a1ff40a96ecc116678fc6, type: 2}
   - {fileID: 11400000, guid: 0231c83ef133cc846a21d4c644cbd1fb, type: 2}
   spriteRenderer: {fileID: 587929431}
-  animatorExpressTester: {fileID: 587929430}
---- !u!114 &587929430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587929427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c29140cbeca0840a276dc3e632d826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &587929431
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ namespace AnimExpressEditor
 	[CustomPropertyDrawer(typeof(Frame))]
 	public class FramePropertyDrawer : PropertyDrawer
 	{
+		private const float DURATION_FIELD_WIDTH = 40f;
+
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
 			return EditorGUIUtility.singleLineHeight;
@@ -16,13 +18,14 @@ namespace AnimExpressEditor
 		{
 			var sprite = property.FindPropertyRelative("sprite");
 			var duration = property.FindPropertyRelative("duration");
-			Rect p1 = position;
-			p1.width = p1.width * 0.8f;
-			Rect p2 = position;
-			p2.width = p2.width * 0.2f;
-			p2.x += p1.width;
-			EditorGUI.PropertyField(p1, sprite, GUIContent.none);
-			EditorGUI.PropertyField(p2, duration, GUIContent.none);
+
+			Rect spriteRect = position;
+			spriteRect.width = position.width - DURATION_FIELD_WIDTH;
+			Rect durationRect = position;
+			durationRect.width = DURATION_FIELD_WIDTH;
+			durationRect.x += spriteRect.width;
+			EditorGUI.PropertyField(spriteRect, sprite, GUIContent.none);
+			EditorGUI.PropertyField(durationRect, duration, GUIContent.none);
 		}
 	}
 }

@@ -98,7 +98,7 @@ namespace AnimExpress
 
 			if (string.IsNullOrEmpty(animationKey))
 			{
-				Debug.LogError($"Animation empty detected for {gameObject.name}");
+				Debug.LogError($"Empty animation detected for {gameObject.name}");
 				PlayDefault();
 			}
 			else if (declaredAnimations.TryGetValue(animationKey, out AnimationExpress animation))
@@ -247,6 +247,10 @@ namespace AnimExpress
 				default:
 					break;
 			}
+
+			// In case we were testing an animation here, we reset its testing state.
+			if (IsBeingTested)
+				IsBeingTested = false;
 		}
 	}
 }
