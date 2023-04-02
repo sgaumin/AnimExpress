@@ -5,9 +5,9 @@
 	"description": "Quickly setup 2D animations in Unity",
 	"unity": "2018.4",
 	"unityRelease": "0b5",
-	"documentationUrl": "https://example.com/",
-	"changelogUrl": "https://example.com/changelog.html",
-	"licensesUrl": "https://example.com/licensing.html",
+	"documentationUrl": "https://github.com/sgaumin/AnimExpress/blob/main/README.md",
+	"changelogUrl": "https://github.com/sgaumin/AnimExpress/blob/main/CHANGELOG.md",
+	"licensesUrl": "https://github.com/sgaumin/AnimExpress/blob/main/LICENSE.md",
 	"samples": [{
 		"displayName": "Character AnimExpress",
 		"description": "Contains samples for Character Animations using AnimExpress.",
