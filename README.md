@@ -19,4 +19,4 @@ TODO
 ```
 ## License
 
-[MIT License](https://github.com/sgaumin/AudioExpress/blob/main/LICENSE.md)
+[MIT License](https://github.com/sgaumin/AnimExpress/blob/main/LICENSE.md)
