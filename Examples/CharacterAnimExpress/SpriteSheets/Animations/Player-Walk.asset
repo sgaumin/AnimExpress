@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player-Walk
   m_EditorClassIdentifier: 
   isLooping: 1
-  playDefaultOnCompletion: 1
+  onCompletionOption: 0
   speedFactor: 1
   frames:
   - sprite: {fileID: 225568851, guid: 97d9c0de48590874caee342684467019, type: 3}

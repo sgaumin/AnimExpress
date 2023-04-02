@@ -60,6 +60,12 @@ namespace AnimExpress
 				var d = new Dictionary<string, AnimationExpressEvent>();
 				foreach (AnimationExpressEvent e in animation.Events)
 				{
+					if (string.IsNullOrEmpty(e.Name))
+					{
+						Debug.LogWarning($"AnimatorExpress: Event with empty name has been setup. It has been ignored.");
+						continue;
+					}
+
 					d.Add(e.Name, e);
 				}
 				declaredAnimationEvents.Add(animation.name, d);
