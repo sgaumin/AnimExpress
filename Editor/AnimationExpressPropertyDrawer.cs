@@ -43,6 +43,7 @@ namespace AnimExpressEditor
 				currrentAnimationPLaying = "";
 			}
 
+			EditorGUI.BeginDisabledGroup(!Application.isPlaying);
 			if (animation.name == currrentAnimationPLaying)
 			{
 				if (GUI.Button(playButtonRect, EditorGUIUtility.IconContent("d_PauseButton@2x")))
@@ -59,6 +60,7 @@ namespace AnimExpressEditor
 					currrentAnimationPLaying = animation.name;
 				}
 			}
+			EditorGUI.EndDisabledGroup();
 
 			if (GUI.Button(copyButtonRect, EditorGUIUtility.IconContent("Clipboard")))
 			{
