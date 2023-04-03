@@ -9,8 +9,6 @@ namespace AnimExpressEditor
 	[CustomPropertyDrawer(typeof(AnimationExpress))]
 	public class AnimationExpressPropertyDrawer : PropertyDrawer
 	{
-		private const float COPY_BUTTON_WIDTH = 30f;
-
 		private static string currrentAnimationPLaying;
 
 		private AnimFloat progress;
@@ -64,18 +62,18 @@ namespace AnimExpressEditor
 			}
 
 			Rect animationRect = position;
-			animationRect.width = position.width - 2 * COPY_BUTTON_WIDTH;
+			animationRect.width = position.width - 2 * AnimationExpressEditorUtils.COPY_BUTTON_WIDTH;
 
 			Rect animationProgressRect = position;
 			animationProgressRect.width = animationRect.width * progress.value;
 
 			Rect playButtonRect = position;
-			playButtonRect.width = COPY_BUTTON_WIDTH;
+			playButtonRect.width = AnimationExpressEditorUtils.COPY_BUTTON_WIDTH;
 			playButtonRect.x += animationRect.width;
 
 			Rect copyButtonRect = position;
-			copyButtonRect.width = COPY_BUTTON_WIDTH;
-			copyButtonRect.x += animationRect.width + COPY_BUTTON_WIDTH;
+			copyButtonRect.width = AnimationExpressEditorUtils.COPY_BUTTON_WIDTH;
+			copyButtonRect.x += animationRect.width + AnimationExpressEditorUtils.COPY_BUTTON_WIDTH;
 
 			EditorGUI.PropertyField(animationRect, property, GUIContent.none);
 

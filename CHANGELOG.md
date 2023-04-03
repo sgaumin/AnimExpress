@@ -1,4 +1,5 @@
 # 0.1.3
+ - Refactor frame event handling
  - Add playing progress inspector animation
 
 # 0.1.2

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player-Idle
   m_EditorClassIdentifier: 
   isLooping: 1
-  playDefaultOnCompletion: 1
+  onCompletionOption: 0
   speedFactor: 1
   frames:
   - sprite: {fileID: -733563644, guid: d8f30ac1fc1d7c34883811428222e07e, type: 3}
@@ -28,4 +28,3 @@ MonoBehaviour:
     duration: 0.1
   - sprite: {fileID: -372801561, guid: d8f30ac1fc1d7c34883811428222e07e, type: 3}
     duration: 0.1
-  events: []

@@ -11,13 +11,11 @@ namespace AnimExpress
 		[SerializeField] private AnimationExpressCompletionOptions onCompletionOption = AnimationExpressCompletionOptions.PlayDefaultAnimation;
 		[SerializeField] private float speedFactor = 1f;
 		[SerializeField] private List<Frame> frames;
-		[SerializeField] private List<AnimationExpressEvent> events;
 
 		public bool IsLooping => isLooping;
 		internal AnimationExpressCompletionOptions OnCompletionOption => onCompletionOption;
 		public float SpeedFactor => speedFactor;
 		public List<Frame> Frames => frames;
-		public List<AnimationExpressEvent> Events => events;
 		public float TotalDuration => frames.Sum(x => x.Duration) / speedFactor;
 
 		public AnimationExpress(List<Frame> frames)

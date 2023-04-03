@@ -39,7 +39,6 @@ namespace AnimExpressEditor
 				speedFactor.floatValue = Mathf.Max(speedFactor.floatValue, 0.01f);
 			}
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("frames"));
-			EditorGUILayout.PropertyField(serializedObject.FindProperty("events"));
 
 			serializedObject.ApplyModifiedProperties();
 		}

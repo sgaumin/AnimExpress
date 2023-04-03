@@ -17,7 +17,7 @@ namespace AnimExpress
 		private Coroutine animationRoutine;
 		private AnimationExpress currentAnimation;
 		private Dictionary<string, AnimationExpress> declaredAnimations;
-		private Dictionary<string, Dictionary<string, AnimationExpressEvent>> declaredAnimationEvents;
+		private Dictionary<string, Action> declaredAnimationEvents;
 
 		public List<AnimationExpress> Animations => animations;
 		public AnimationExpress Current => currentAnimation;
@@ -53,34 +53,12 @@ namespace AnimExpress
 		{
 			hasBeenInitialized = true;
 			declaredAnimations = new Dictionary<string, AnimationExpress>(animations.Count);
-			declaredAnimationEvents = new Dictionary<string, Dictionary<string, AnimationExpressEvent>>();
+			declaredAnimationEvents = new Dictionary<string, Action>();
 			foreach (AnimationExpress animation in animations)
 			{
 				declaredAnimations.Add(animation.name, animation);
-
-				var d = new Dictionary<string, AnimationExpressEvent>();
-				foreach (AnimationExpressEvent e in animation.Events)
-				{
-					if (string.IsNullOrEmpty(e.Name))
-					{
-						Debug.LogWarning($"AnimatorExpress: Event with empty name has been setup. It has been ignored.");
-						continue;
-					}
-
-					d.Add(e.Name, e);
-				}
-				declaredAnimationEvents.Add(animation.name, d);
 			}
 		}
-
-#if UNITY_EDITOR
-
-		public void AddAnimation(AnimationExpress animation)
-		{
-			animations.Add(animation);
-		}
-
-#endif
 
 		private void PlayDefault()
 		{
@@ -135,37 +113,29 @@ namespace AnimExpress
 			currentAnimation = null;
 		}
 
-		public void AddListener(string animationName, string eventName, Action action)
+		public void AddListener(string frameName, Action action)
 		{
 			CheckInitialization();
 
-			if (declaredAnimationEvents.TryGetValue(animationName, out var events))
+			Action frameEvent;
+			if (declaredAnimationEvents.TryGetValue(frameName, out frameEvent))
 			{
-				if (events.TryGetValue(eventName, out var e))
-				{
-					e.AddListener(action);
-				}
-				else
-				{
-					Debug.LogError($"Event {eventName} on animation {animationName} not found for {gameObject.name}");
-				}
+				frameEvent += action;
 			}
 			else
 			{
-				Debug.LogError($"Animation {animationName} not found for {gameObject.name}");
+				frameEvent += action;
+				declaredAnimationEvents.Add(frameName, frameEvent);
 			}
 		}
 
-		public void RemoveListener(string animationName, string eventName, Action action)
+		public void RemoveListener(string frameName, Action action)
 		{
 			CheckInitialization();
 
-			if (declaredAnimationEvents.TryGetValue(animationName, out var events))
+			if (declaredAnimationEvents.TryGetValue(frameName, out Action frameEvent))
 			{
-				if (events.TryGetValue(eventName, out var e))
-				{
-					e.RemoveListener(action);
-				}
+				frameEvent -= action;
 			}
 		}
 
@@ -197,14 +167,9 @@ namespace AnimExpress
 			int currentIndex = 0;
 			float currentDuration = 0f;
 			float currentStartTime = Time.time;
+			Frame currentFrame = null;
 			List<Frame> frames = currentAnimation.Frames;
-			List<AnimationEventChecker> events = new List<AnimationEventChecker>();
-			foreach (var e in currentAnimation.Events)
-			{
-				var a = new AnimationEventChecker(e);
-				a.SetupTrigger(currentAnimation);
-				events.Add(a);
-			}
+			bool hasTriggeredEvent = false;
 
 			while (true)
 			{
@@ -221,22 +186,21 @@ namespace AnimExpress
 						{
 							break;
 						}
-
-						events.ForEach(x => x.hasBeenTriggered = false);
 					}
 
-					Frame currentFrame = frames[currentIndex++];
+					currentFrame = frames[currentIndex++];
 					spriteRenderer.sprite = currentFrame.Sprite;
 					currentDuration = Time.time + currentFrame.Duration / currentAnimation.SpeedFactor;
+					hasTriggeredEvent = false;
 				}
 
-				foreach (var e in events)
+				// Triggering event attached to this frame
+				if (!hasTriggeredEvent)
 				{
-					float triggerTime = e.animationEvent.TriggerTime + currentStartTime;
-					if (triggerTime <= Time.time && !e.hasBeenTriggered)
+					hasTriggeredEvent = true;
+					if (declaredAnimationEvents.TryGetValue(currentFrame.Sprite.name, out Action frameEvent))
 					{
-						e.hasBeenTriggered = true;
-						e.animationEvent.Invoke();
+						frameEvent?.Invoke();
 					}
 				}
 
