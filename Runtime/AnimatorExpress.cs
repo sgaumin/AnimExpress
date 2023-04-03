@@ -20,6 +20,7 @@ namespace AnimExpress
 		private Dictionary<string, Dictionary<string, AnimationExpressEvent>> declaredAnimationEvents;
 
 		public List<AnimationExpress> Animations => animations;
+		public AnimationExpress Current => currentAnimation;
 		public bool IsBeingTested { get; set; }
 
 		private void Reset()

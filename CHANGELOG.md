@@ -1,3 +1,6 @@
+# 0.1.3
+ - Add playing progress inspector animation
+
 # 0.1.2
  - Add more details in package.json
  - Reorganize assemblies
