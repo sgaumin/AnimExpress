@@ -1,4 +1,5 @@
 # 0.1.3
+ - Add texture image preview on animation inspector
  - Refactor frame event handling
  - Add playing progress inspector animation
 
