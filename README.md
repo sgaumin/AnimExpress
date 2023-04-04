@@ -58,6 +58,12 @@ private void Awake()
   animator.AddListener("FrameName_0", CallBack1);
   animator.AddListener("FrameName_1", CallBack2);
 }
+
+private void OnDestroy()
+{
+  animator.RemoveListener("FrameName_0", CallBack1);
+  animator.RemoveListener("FrameName_1", CallBack2);
+}
 ```
 
 ## Support
