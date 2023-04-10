@@ -43,7 +43,7 @@ namespace AnimExpressEditor
 			AnimationExpress animation = animator.Animations[index];
 
 			// Check if this animation is playing
-			if (playingAnimation == animation)
+			if (animation != null && animation == playingAnimation)
 			{
 				if (!initizalized || progress.value == 1f)
 				{
@@ -87,7 +87,7 @@ namespace AnimExpressEditor
 			}
 
 			EditorGUI.BeginDisabledGroup(!Application.isPlaying);
-			if (animation.name == currrentAnimationPLaying)
+			if (animation != null && animation.name == currrentAnimationPLaying)
 			{
 				if (GUI.Button(playButtonRect, EditorGUIUtility.IconContent("d_PauseButton@2x")))
 				{
@@ -99,8 +99,11 @@ namespace AnimExpressEditor
 			{
 				if (GUI.Button(playButtonRect, EditorGUIUtility.IconContent("d_PlayButton@2x")))
 				{
-					animator.PlayTesting(animation.name);
-					currrentAnimationPLaying = animation.name;
+					if (animation != null)
+					{
+						animator.PlayTesting(animation.name);
+						currrentAnimationPLaying = animation.name;
+					}
 				}
 			}
 			EditorGUI.EndDisabledGroup();
