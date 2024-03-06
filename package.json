@@ -1,6 +1,6 @@
 {
 	"name": "com.sgaumin.animexpress",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"displayName": "Anim Express",
 	"description": "Lightweight Unity Utility to quickly setup 2D animations",
 	"unity": "2018.4",

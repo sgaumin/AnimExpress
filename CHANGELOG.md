@@ -1,3 +1,9 @@
+# 0.1.4
+ - Start animation on enable callback
+ - Update package description
+ - Fix animation entry null cases
+ - Fix meta file aseprite asset
+
 # 0.1.3
  - Add texture image preview on animation inspector
  - Refactor frame event handling
