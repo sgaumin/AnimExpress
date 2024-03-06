@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 namespace AnimExpress
 {
@@ -39,14 +39,14 @@ namespace AnimExpress
 			catch (System.Exception) { }
 		}
 
-		private void Awake()
-		{
-			CheckInitialization();
-		}
-
-		private void Start()
+		private void OnEnable()
 		{
 			PlayDefault();
+		}
+
+		private void OnDisable()
+		{
+			Stop();
 		}
 
 		private void Init()
