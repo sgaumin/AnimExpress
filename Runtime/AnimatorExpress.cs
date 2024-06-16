@@ -80,7 +80,7 @@ namespace AnimExpress
 			DoPlay(animationKey);
 		}
 
-		private void DoPlay(string animationKey)
+		private void DoPlay(string animationKey, bool reversed = false)
 		{
 			CheckInitialization();
 
@@ -99,13 +99,19 @@ namespace AnimExpress
 				Debug.LogError($"Animation {animationKey} not found for {gameObject.name}");
 			}
 
-			PlayRoutine();
+			PlayRoutine(reversed);
 		}
 
 		public void Play(string animationKey = "")
 		{
 			if (IsBeingTested) return;
 			DoPlay(animationKey);
+		}
+
+		public void PlayReversed(string animationKey = "")
+		{
+			if (IsBeingTested) return;
+			DoPlay(animationKey, true);
 		}
 
 		public void Stop()
@@ -142,10 +148,10 @@ namespace AnimExpress
 			}
 		}
 
-		private void PlayRoutine()
+		private void PlayRoutine(bool reversed = false)
 		{
 			StopRoutine();
-			animationRoutine = StartCoroutine(PlayCore());
+			animationRoutine = StartCoroutine(PlayCore(reversed));
 		}
 
 		private void StopRoutine()
@@ -165,7 +171,7 @@ namespace AnimExpress
 			}
 		}
 
-		private IEnumerator PlayCore()
+		private IEnumerator PlayCore(bool reversed = false)
 		{
 			int currentIndex = 0;
 			float currentDuration = 0f;
@@ -173,6 +179,9 @@ namespace AnimExpress
 			Frame currentFrame = null;
 			List<Frame> frames = currentAnimation.Frames;
 			bool hasTriggeredEvent = false;
+
+			if (reversed)
+				frames.Reverse();
 
 			while (true)
 			{
