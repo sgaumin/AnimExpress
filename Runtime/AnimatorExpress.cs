@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace AnimExpress
@@ -177,7 +178,7 @@ namespace AnimExpress
 			float currentDuration = 0f;
 			float currentStartTime = Time.time;
 			Frame currentFrame = null;
-			List<Frame> frames = currentAnimation.Frames;
+			List<Frame> frames = currentAnimation.Frames.ToList();
 			bool hasTriggeredEvent = false;
 
 			if (reversed)
