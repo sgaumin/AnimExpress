@@ -10,6 +10,9 @@ namespace AnimExpress
 	{
 		[SerializeField] private List<AnimationExpress> animations = new List<AnimationExpress>();
 
+		[Header("Settings")]
+		[SerializeField] private bool playDefaultOnEnabled = true;
+
 		[Header("References")]
 		[SerializeField] protected SpriteRenderer spriteRenderer;
 
@@ -29,10 +32,9 @@ namespace AnimExpress
 			{
 				if (!Application.isPlaying)
 				{
-					if (spriteRenderer is null)
-					{
+					if (spriteRenderer != null)
 						spriteRenderer = GetComponent<SpriteRenderer>();
-					}
+
 					spriteRenderer.sprite = animations[0].Frames[0].Sprite;
 				}
 			}
@@ -41,7 +43,8 @@ namespace AnimExpress
 
 		private void OnEnable()
 		{
-			PlayDefault();
+			if (playDefaultOnEnabled)
+				PlayDefault();
 		}
 
 		private void OnDisable()
@@ -212,9 +215,11 @@ namespace AnimExpress
 				case AnimationExpressCompletionOptions.PlayDefaultAnimation:
 					PlayDefault();
 					break;
+
 				case AnimationExpressCompletionOptions.DestroyGameObject:
 					Destroy(gameObject);
 					break;
+
 				default:
 					break;
 			}
