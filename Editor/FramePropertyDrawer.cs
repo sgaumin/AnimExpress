@@ -37,7 +37,14 @@ namespace AnimExpressEditor
 
 			EditorGUI.PropertyField(spriteRect, sprite, GUIContent.none);
 
-			GUI.DrawTexture(textureRect, AssetPreview.GetAssetPreview(sprite.objectReferenceValue), ScaleMode.ScaleToFit);
+			if (sprite.objectReferenceValue)
+			{
+				Texture texture = AssetPreview.GetAssetPreview(sprite.objectReferenceValue);
+				if (texture)
+				{
+					GUI.DrawTexture(textureRect, texture, ScaleMode.ScaleToFit);
+				}
+			}
 
 			if (GUI.Button(copyButtonRect, EditorGUIUtility.IconContent("Clipboard")))
 			{
