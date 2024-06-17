@@ -24,6 +24,7 @@ namespace AnimExpressEditor
 			{
 				EditorGUILayout.PropertyField(serializedObject.FindProperty("onCompletionOption"));
 			}
+			EditorGUILayout.PropertyField(serializedObject.FindProperty("canBeRestarted"));
 
 			EditorGUILayout.Space(16f);
 

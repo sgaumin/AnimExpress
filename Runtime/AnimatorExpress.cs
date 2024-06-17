@@ -92,7 +92,9 @@ namespace AnimExpress
 			}
 			else if (declaredAnimations.TryGetValue(animationKey, out AnimationExpress animation))
 			{
-				if (currentAnimation == animation) return;
+				if (currentAnimation == animation && !animation.CanBeRestarted)
+					return;
+
 				currentAnimation = animation;
 			}
 			else
