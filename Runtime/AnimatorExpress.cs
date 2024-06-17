@@ -232,6 +232,10 @@ namespace AnimExpress
 					Destroy(gameObject);
 					break;
 
+				case AnimationExpressCompletionOptions.BroadcastMessage:
+					BroadcastMessage(currentAnimation.MethodName);
+					break;
+
 				default:
 					break;
 			}

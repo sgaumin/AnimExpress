@@ -1,9 +1,10 @@
 namespace AnimExpress
 {
-	internal enum AnimationExpressCompletionOptions
+	public enum AnimationExpressCompletionOptions
 	{
 		PlayDefaultAnimation,
 		DestroyGameObject,
+		BroadcastMessage,
 		None
 	}
 }

@@ -22,7 +22,14 @@ namespace AnimExpressEditor
 			EditorGUILayout.PropertyField(isLooping);
 			if (!isLooping.boolValue)
 			{
-				EditorGUILayout.PropertyField(serializedObject.FindProperty("onCompletionOption"));
+				SerializedProperty onCompletionOption = serializedObject.FindProperty("onCompletionOption");
+				EditorGUILayout.PropertyField(onCompletionOption);
+
+				var option = (AnimationExpressCompletionOptions)onCompletionOption.enumValueIndex;
+				if (option == AnimationExpressCompletionOptions.BroadcastMessage)
+				{
+					EditorGUILayout.PropertyField(serializedObject.FindProperty("methodName"));
+				}
 			}
 			EditorGUILayout.PropertyField(serializedObject.FindProperty("canBeRestarted"));
 

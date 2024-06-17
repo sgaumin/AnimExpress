@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player-Idle
   m_EditorClassIdentifier: 
   isLooping: 1
+  canBeRestarted: 1
   onCompletionOption: 0
   speedFactor: 1
   frames:
